@@ -18,7 +18,7 @@ class KickassTorrentsAdapter implements AdapterInterface
 
     public function search($query)
     {
-        $response = $this->httpClient->get('http://kickass.so/usearch/' . urlencode($query) . '/?field=seeders&sorder=asc&rss=1');
+        $response = $this->httpClient->get('http://kickass.to/usearch/' . urlencode($query) . '/?field=seeders&sorder=asc&rss=1');
         $crawler = new Crawler((string) $response->getBody());
         $items = $crawler->filterXpath('//channel/item');
         $results = [];
